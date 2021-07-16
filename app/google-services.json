@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "578363327518",
+    "project_id": "unt-pre-owned-store",
+    "storage_bucket": "unt-pre-owned-store.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578363327518:android:dadaa0bd2021327ae75a0f",
+        "android_client_info": {
+          "package_name": "com.example.untpreownedstore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "578363327518-f9pgkh7ed64pk0pbmc8ucaotca1uefa1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBb9y8XPQwt2sFQGrUJwdc5HHLZ7oI2Hmc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "578363327518-f9pgkh7ed64pk0pbmc8ucaotca1uefa1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

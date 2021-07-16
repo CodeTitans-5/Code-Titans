@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="DashboardCardStyle">
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:layout_width">@dimen/dashboard_card_width</item>
+        <item name="android:layout_height">@dimen/dashboard_card_height</item>
+        <item name="android:layout_margin">@dimen/dashboard_card_margin</item>
+    </style>
+    <style name="DashboardTitleTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">@dimen/dashboard_title_margin_top</item>
+        <!--        <item name="android:textSize">@dimen/dashboard_title_text_size</item>-->
+    </style>
+    <style name="DashboardIconStyle">
+        <item name="android:layout_width">@dimen/dashboard_icon_size</item>
+        <item name="android:layout_height">@dimen/dashboard_icon_size</item>
+        <item name="android:padding">@dimen/dashboard_icon_padding</item>
+        <item name="android:background">@drawable/bg_dashoard_circle</item>
+    </style>
+    <style name="DashboardDividerStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dashboard_icon_divider_height</item>
+        <item name="android:layout_margin">@dimen/dashboard_icon_divider_margin</item>
+        <item name="android:background">@android:color/darker_gray</item>
+    </style>
+</resources>

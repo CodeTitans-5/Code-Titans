@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">untpreownedstore</string>
+    <string name="inactive">Inactive</string>
+    <string name="active">Active</string>
+    <string name="other">Other</string>
+    <string-array name="categories">
+        <item>Select product category</item>
+        <item>Automobiles</item>
+        <item>Books</item>
+        <item>Clothing</item>
+        <item>Electronics</item>
+        <item>Footwear</item>
+        <item>Sports</item>
+    </string-array>
+</resources>

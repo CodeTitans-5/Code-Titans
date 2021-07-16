@@ -1,0 +1,16 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="dashboard_icon_size">64dp</dimen>
+    <dimen name="dashboard_icon_padding">4dp</dimen>
+    <dimen name="dashboard_title_margin_top">2dp</dimen>
+
+    <dimen name="dashboard_icon_divider_margin">4dp</dimen>
+    <dimen name="dashboard_icon_divider_height">1dp</dimen>
+    <dimen name="dashboard_subtitle_text_padding">2dp</dimen>
+    <dimen name="dashboard_card_width">100dp</dimen>
+    <dimen name="dashboard_card_height">100dp</dimen>
+    <dimen name="dashboard_card_margin">8dp</dimen>
+</resources>
+<!--<dimen name="dashboard_title_text_size">16sp</dimen>-->
