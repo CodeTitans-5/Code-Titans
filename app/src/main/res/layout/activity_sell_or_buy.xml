@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CEF797"
+    tools:context=".SellOrBuy">
+    <TextView
+        android:id="@+id/pageInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="200dp"
+        android:text="Why are you here today?"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+    <Button
+        android:layout_marginTop="150dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buy"
+        android:layout_marginLeft="80dp"
+        android:layout_below="@id/pageInfo"
+        android:onClick="onClickBuy"
+        android:text="Buy"/>
+    <Button
+        android:layout_marginTop="150dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sell"
+        android:layout_toRightOf="@+id/buy"
+        android:layout_marginLeft="80dp"
+        android:layout_below="@id/pageInfo"
+        android:text="Sell"
+        android:onClick="onCLickSell"/>
+</RelativeLayout>
