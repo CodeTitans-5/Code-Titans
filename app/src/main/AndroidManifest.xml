@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Untpreownedstore">
         <activity
-            android:name=".StartPageActivity"
+            android:name=".SplashScreenActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
