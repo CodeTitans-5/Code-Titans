@@ -9,7 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Untpreownedstore">
+        <activity android:name=".MyItemsActivity" />
+        <activity android:name=".DashboardActivity" />
+        <activity android:name=".NewLoginActivity" />
+        <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".ItemActivity" />
+        <activity android:name=".BuyActivity" />
+        <activity android:name=".CategoriesActivity" />
+        <activity android:name=".AddProductActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".SignUpActivity" />
         <activity android:name=".StartPageActivity" />
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".SplashScreenActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
