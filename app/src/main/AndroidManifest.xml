@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Untpreownedstore">
+        <activity android:name=".StartPageActivity" />
         <activity
             android:name=".SplashScreenActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
