@@ -48,7 +48,7 @@ public class NewLoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_login);
         uiMethods();
     }
-
+    //The following method initializes the  edittext fields and firebase.
     private void uiMethods() {
         mEmail = findViewById(R.id.new_email_login);
         mPassword = findViewById(R.id.new_password);
@@ -92,7 +92,8 @@ public class NewLoginActivity extends AppCompatActivity {
         finish();
         return true;
     }
-
+// THe following method checks if credentials entered by the user are correct or not.
+    //If so user will be logged into the application.
     public void onClickLogin(View view) {
         email = Objects.requireNonNull(mEmail.getText()).toString().trim();
         password = Objects.requireNonNull(mPassword.getText()).toString().trim();
@@ -124,7 +125,7 @@ public class NewLoginActivity extends AppCompatActivity {
                                         progressDialog.show();
                                         Toast.makeText(NewLoginActivity.this,
                                                 "Login successful", Toast.LENGTH_SHORT).show();
-                                        Intent i = new Intent(NewLoginActivity.this, SellOrBuy.class);
+                                        Intent i = new Intent(NewLoginActivity.this, DashboardActivity.class);
                                         startActivity(i);
                                         userId = firebaseUser.getUid();
                                         saveNewPassword();
@@ -178,7 +179,7 @@ public class NewLoginActivity extends AppCompatActivity {
             Toast.makeText(this, "Email pattern not matched", Toast.LENGTH_LONG).show();
         }
     }
-
+    //New password will be updated to the database
     private void saveNewPassword() {
         firebaseFirestore.collection("Users")
                 .document(userId)

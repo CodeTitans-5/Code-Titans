@@ -55,6 +55,7 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // The following line is used to set the title of the screen in the action bar.
         getSupportActionBar().setTitle("Product Info");
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -62,6 +63,7 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
         uiMethods();
     }
 
+    //        The following method initializes the  edittext fields, text field, button, spinner and image view.
     private void uiMethods() {
         mProductName = findViewById(R.id.productName);
         mProductDescription = findViewById(R.id.productDescription);
@@ -70,7 +72,7 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
         mCategorySpinner = findViewById(R.id.categorySpinner);
         mProductImage = findViewById(R.id.product_image);
 
-
+//       Following lines of code is used to set the static values to the spinner.
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.
                 createFromResource(this, R.array.categories,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -91,11 +93,12 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
         finish();
         return true;
     }
+    // The following method will take the user back to DashboardActivity.class
     public void onClickCancel(View view) {
         Intent intent = new Intent(this, DashboardActivity.class);
         startActivity(intent);
     }
-
+    // The following method validates if all fields are filled with appropriate data.
     public void onClickAddProduct(View view) {
 
 
@@ -128,7 +131,7 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
         }
 
     }
-
+    //    In the following method data from fields are set to product object.
     private void saveData() {
         if (mUploadTask != null && mUploadTask.isInProgress()) {
             Toast.makeText(AddProductActivity.this,
@@ -145,7 +148,7 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
         }
 
     }
-
+    // Data will be sent to the database using the following method.
     private void sendDataTODB(String productId) {
         collectionReference.document(productId)
                 .set(product).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -177,7 +180,7 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
                     }
                 });
     }
-
+    // This method clears all fields after the data is sent to the database
     private void clearUi() {
         mProductId.setVisibility(View.GONE);
         mProductName.setText("");
@@ -185,7 +188,7 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
         mProductPrice.setText("");
         mProductImage.setVisibility(View.GONE);
     }
-
+    //The following method is used to uplaod product image from the gallery.
     public void onClickUploadImage(View view) {
         openFileChooser(1);
     }
@@ -212,6 +215,7 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
             }
         }
     }
+    //The following method saves the image into firebase storage
     private void uploadFile(Uri mImageUri, final int i) {
         Log.i(TAG, "Step 1");
         if (mImageUri != null) {
@@ -263,7 +267,7 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
             Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
         }
     }
-    //get file extension from the image
+    //The following method is used to get file extension from the image
     private String getFileExtension(Uri uri) {
         ContentResolver contentResolver = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();

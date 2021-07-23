@@ -64,7 +64,7 @@ public class MyItemsActivity extends AppCompatActivity {
     }
 
 
-
+    //    The following method lists the items added by the user
     private void recyclerMethod(ArrayList<Product> productArrayList) {
         recyclerView = findViewById(R.id.items);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -78,7 +78,8 @@ public class MyItemsActivity extends AppCompatActivity {
             public void onRecyclerClick(String documentId, String productCategory) {
 
             }
-
+            //If user wants to edit info about an already added item the following mehtod will
+//            help the user do that.
             @Override
             public void onRecyclerEditClick(String productId, String userId) {
                 Intent intent = new Intent(getBaseContext(), EditItemActivity.class);
@@ -93,7 +94,7 @@ public class MyItemsActivity extends AppCompatActivity {
             }
         });
     }
-
+    //The following method removes the item from the category and also the database
     private void removeItem(String productId, String userId, String productCategory) {
         AlertDialog.Builder builder = new AlertDialog.Builder(MyItemsActivity.this);
 
@@ -150,7 +151,7 @@ public class MyItemsActivity extends AppCompatActivity {
         AlertDialog deleteAlertDialog = builder.create();
         deleteAlertDialog.show();
     }
-
+    // The following method reads items from the database that user has added to sell.
     private void readFromDb() {
         Log.i(TAG, "readFromDb Method Invoked");
         collectionReference.document(userId).collection("My Items")

@@ -48,7 +48,7 @@ public class ItemActivity extends AppCompatActivity {
         finish();
         return true;
     }
-
+    //The following method initializes the  edittext fields, text field, button, firebase and image view.
     private void uiMethods() {
         mUserName = findViewById(R.id.userName);
         mUserEmail = findViewById(R.id.e_mail);
@@ -63,7 +63,8 @@ public class ItemActivity extends AppCompatActivity {
         readFromDB();
 
     }
-
+    //    The following method reads the data of the selected from the database and shows
+//    to user.
     private void readFromDB() {
         collectionReference.document(productId)
                 .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -79,7 +80,7 @@ public class ItemActivity extends AppCompatActivity {
             }
         });
     }
-
+    //    Seller contact information is retrieved using the following method.
     private void getContactInfo(String customerId) {
         firebaseFirestore.collection("Users").document(customerId)
                 .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -100,6 +101,8 @@ public class ItemActivity extends AppCompatActivity {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(ItemActivity.this);
                 builder.setMessage("Choose one!!").setCancelable(false);
+                //the following lines of code helps user to contact the seller by just clicking on the
+//        phone number
                 builder.setPositiveButton("WhatsApp", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(final DialogInterface dialog, int which) {
@@ -109,6 +112,8 @@ public class ItemActivity extends AppCompatActivity {
                         startActivity(Intent.createChooser(i, ""));
                     }
                 });
+                //the following lines of code helps user to contact the seller by just clicking on the
+//        phone number
                 builder.setNegativeButton("Call", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -122,6 +127,8 @@ public class ItemActivity extends AppCompatActivity {
                 alert.show();
             }
         });
+        //the following lines of code helps user to contact the seller by just clicking on the
+//        email id
         mUserEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

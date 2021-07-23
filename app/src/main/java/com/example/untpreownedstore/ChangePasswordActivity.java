@@ -38,7 +38,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_change_password);
         initializeUI();
     }
-
+    //The following method initializes the  edittext fields and firebase.
     private void initializeUI() {
         mOldPassword = findViewById(R.id.enter_password);
         mNewPassword = findViewById(R.id.enter_new_password);
@@ -72,7 +72,8 @@ public class ChangePasswordActivity extends AppCompatActivity {
         finish();
         return true;
     }
-
+    //    The following method checks whether the data is entered into the fields appropriately
+//    if so password will be updated successfully.
     public void onClickUpdatePassword(View view) {
         oldPassword = mOldPassword.getText().toString();
 

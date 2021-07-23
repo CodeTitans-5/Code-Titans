@@ -20,7 +20,8 @@ public class CategoriesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_categories);
         uiMethods();
     }
-
+    //The following method initializes the  image view and on click of any of the categories
+    // user will be taken to corresponding categories list.
     private void uiMethods() {
         mAutomobile = findViewById(R.id.automobile);
         mBooks = findViewById(R.id.books);

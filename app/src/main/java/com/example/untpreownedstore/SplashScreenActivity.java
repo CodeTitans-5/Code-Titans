@@ -28,6 +28,9 @@ public class SplashScreenActivity extends AppCompatActivity {
             @Override
             public void run() {
                 // This method will be executed once the timer is over
+                // The following if check if the user is logged in. If already logged in user will
+                // be sent to Dashboard activity.class
+                //else  he will be sent to MainActivity.class
 
                 if (mCurrentUser != null) {
                     Log.i(TAG, "onStart: ");

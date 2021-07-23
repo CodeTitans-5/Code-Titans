@@ -54,6 +54,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onStart();
         uiMethods();
     }
+    //The following method initializes the  edittext fields and firebase. This method also gets the
+//    password from the database to check if user entered correct password or not.
+
     private void uiMethods() {
         mEmail = findViewById(R.id.email_login);
         mPassword = findViewById(R.id.password_login);
@@ -99,12 +102,13 @@ public class LoginActivity extends AppCompatActivity {
         finish();
         return true;
     }
-
+    // The following method will take the user to the ForgotPasswordActivity.class
     public void onClickForgotPassword(View view) {
         Intent intent = new Intent(this, ForgotPasswordActivity.class);
         startActivity(intent);
     }
-
+    // the following method checks if credentials are correct ot not. If correct
+//    user will be login into the applicaiton.
     public void onClickLogin(View view) {
         email = Objects.requireNonNull(mEmail.getText()).toString().trim();
         password = Objects.requireNonNull(mPassword.getText()).toString().trim();

@@ -55,7 +55,8 @@ public class EditInfoActivity extends AppCompatActivity {
         uiMethods();
         readDataFromDB();
     }
-
+    //    The following method reads data of corresponding user from the database and sets the data
+    //    to the corresponding fields.
     private void readDataFromDB() {
         collectionReference.document(userId)
                 .addSnapshotListener(new EventListener<DocumentSnapshot>() {
@@ -110,7 +111,7 @@ public class EditInfoActivity extends AppCompatActivity {
                     }
                 });
     }
-
+    //The following method initializes the  edittext fields and firebase.
     private void uiMethods() {
         mFirstName = findViewById(R.id.firstName);
         mMiddleName = findViewById(R.id.middleName);
@@ -133,7 +134,7 @@ public class EditInfoActivity extends AppCompatActivity {
         finish();
         return true;
     }
-
+    // The following method checks if data is enter appropriately.
     public void onClickSubmit(View view) {
         Log.i(TAG, "onClickSubmit: ");
 
@@ -175,7 +176,7 @@ public class EditInfoActivity extends AppCompatActivity {
 //                adduser.put("Email", em);
 //                itemCollection.document().set(adduser);
     }
-
+    //In the following method teh data is set to the user object.
     private void saveData() {
         user = new User();
         Log.i(TAG, "User object is created");
@@ -189,7 +190,7 @@ public class EditInfoActivity extends AppCompatActivity {
         user.setPassword(password);
         sendDataTODB(userId);
     }
-
+    //The following method updates the new user information.
     private void sendDataTODB(String userId) {
         collectionReference.document(userId)
                 .set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -211,6 +212,7 @@ public class EditInfoActivity extends AppCompatActivity {
             }
         });
     }
+    //This method clears the fields after data is sent to database.
     private void clearUi() {
         mFirstName.setText("");
         mMiddleName.setText("");
@@ -231,7 +233,7 @@ public class EditInfoActivity extends AppCompatActivity {
     public void otherClicked(View view) {
         gender = "other";
     }
-
+    // The following method will take the suer to the ChangePasswordActivity.class
     public void onClickChangePassword(View view) {
         Intent intent = new Intent(this, ChangePasswordActivity.class);
         startActivity(intent);

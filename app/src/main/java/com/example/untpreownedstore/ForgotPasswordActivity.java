@@ -37,6 +37,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         finish();
         return true;
     }
+    ///The following method resets the password
     public void onClickResetPassword(View view) {
         String email = mEmailAddress.getText().toString().trim();
         if(TextUtils.isEmpty(email)){

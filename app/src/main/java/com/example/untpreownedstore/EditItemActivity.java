@@ -67,7 +67,7 @@ public class EditItemActivity extends AppCompatActivity {
         uiMethods();
         readDataFromDB();
     }
-
+    //The items data is read from the database and assigned to the corresponding fields.
     private void readDataFromDB() {
         firebaseFirestore.collection("Users").document(userId)
                 .collection("My Items").document(productId)
@@ -102,7 +102,7 @@ public class EditItemActivity extends AppCompatActivity {
                     }
                 });
     }
-
+    // the following method Initializes fields in the UI
     private void uiMethods() {
         mProductName = findViewById(R.id.productName1);
         mProductDescription = findViewById(R.id.productDescription1);
@@ -118,7 +118,7 @@ public class EditItemActivity extends AppCompatActivity {
         finish();
         return true;
     }
-
+    //New data is read from the fields and sent  to the database
     public void onClickUpdateProductDetails(View view) {
         productName = mProductName.getText().toString();
         productDescription = mProductDescription.getText().toString();

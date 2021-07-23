@@ -47,6 +47,7 @@ public class BuyActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mContext = getApplicationContext();
         mInfo = findViewById(R.id.info);
+        // Firebase Initialization
         mAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
         collectionReference = firebaseFirestore.collection(productCategory);
@@ -55,7 +56,7 @@ public class BuyActivity extends AppCompatActivity {
         recyclerMethod(productArrayList);
 
     }
-
+    //    The following method read items of corresponding category from the database.
     private void readFromDb() {
         Log.i(TAG, "readFromDb Method Invoked");
         collectionReference
@@ -95,7 +96,7 @@ public class BuyActivity extends AppCompatActivity {
         }
 
     }
-
+    //    The following method is used to set values of items in "list" manner
     private void recyclerMethod(ArrayList<Product> productArrayList) {
         recyclerView = findViewById(R.id.items);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);

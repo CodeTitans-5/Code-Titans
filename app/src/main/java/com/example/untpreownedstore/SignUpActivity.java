@@ -48,7 +48,7 @@ public class SignUpActivity extends AppCompatActivity {
         uiMethods();
 
     }
-
+    //The following method initializes the  edittext fields, text field, button, spinner and image view.
     private void uiMethods() {
         mFirstName = findViewById(R.id.firstName);
         mMiddleName = findViewById(R.id.middleName);
@@ -73,7 +73,9 @@ public class SignUpActivity extends AppCompatActivity {
         finish();
         return true;
     }
-
+    // The data in the fields are assigned to the corresponding strings and checks if
+//    data is appropriate for that field. If so, user data will be sent to the database and
+//    verification link will be sent to the user's email.
     public void onClickSubmit(View view) {
         Log.i(TAG, "onClickSubmit: ");
 
@@ -169,7 +171,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         }
     }
-
+    //User data is saved into user object
     private void saveData() {
         user = new User();
         Log.i(TAG, "User object is created");
@@ -183,7 +185,7 @@ public class SignUpActivity extends AppCompatActivity {
         user.setPassword(password);
         sendDataTODB(userId);
     }
-
+    // User Data is sent to database.
     private void sendDataTODB(String userId) {
         collectionReference.document(userId)
                 .set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -204,7 +206,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
     }
-
+    //The following method clears all data form the UI after data is sent to database
     private void clearUi() {
         mFirstName.setText("");
         mMiddleName.setText("");
