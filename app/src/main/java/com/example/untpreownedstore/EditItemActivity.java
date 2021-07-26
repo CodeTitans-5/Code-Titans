@@ -163,7 +163,7 @@ public class EditItemActivity extends AppCompatActivity {
                     update("productDescription",productDescription,"productName",productName,
                             "productPrice",productPrice );
             firebaseFirestore.collection(productCategory).document(productId)
-                    .update("productDescription",productDescription,"productName",product,
+                    .update("productDescription",productDescription,"productName",productName,
                             "productPrice",productPrice);
             Toast.makeText(this, "Details updated successfully.", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, MyItemsActivity.class);
