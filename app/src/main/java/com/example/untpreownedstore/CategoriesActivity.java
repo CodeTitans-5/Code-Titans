@@ -33,7 +33,7 @@ public class CategoriesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), BuyActivity.class);
-                intent.putExtra("CATEGORY", "Automobile");
+                intent.putExtra("CATEGORY", "Automobiles");
                 startActivity(intent);
             }
         });

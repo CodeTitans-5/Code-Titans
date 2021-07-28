@@ -148,9 +148,7 @@ public class SignUpActivity extends AppCompatActivity {
                                                                 "Verification link sent to " + email,
                                                                 Toast.LENGTH_LONG).show();
                                                         Log.i( "success" ,"email sent");
-                                                        Intent i = new Intent(SignUpActivity.this,
-                                                                LoginActivity.class);
-                                                        startActivity(i);
+
                                                         saveData();
                                                     }
                                                 }
@@ -215,6 +213,9 @@ public class SignUpActivity extends AppCompatActivity {
         mPassword.setText("");
         mReenterPassword.setText("");
         mPhoneNumber.setText("");
+        Intent i = new Intent(SignUpActivity.this,
+                LoginActivity.class);
+        startActivity(i);
     }
 
     public void maleClicked(View view) {
