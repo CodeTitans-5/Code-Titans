@@ -49,7 +49,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
     //The following method initializes the  edittext fields, text field, button, spinner and image view.
-    private void uiMethods() {
+    public void uiMethods() {
         mFirstName = findViewById(R.id.firstName);
         mMiddleName = findViewById(R.id.middleName);
         mLastName = findViewById(R.id.lastName);
@@ -220,7 +220,14 @@ public class SignUpActivity extends AppCompatActivity {
     public void maleClicked(View view) {
         gender = "male";
     }
-
+    public void setFirstName()
+    {
+        Bundle extras = getIntent().getExtras();
+        String first = extras.getString("firstName");
+        String last = extras.getString("lastName");
+        firstName = first;
+        lastName = last;
+    }
     public void femaleClicked(View view) {
         gender = "female";
     }
@@ -228,4 +235,6 @@ public class SignUpActivity extends AppCompatActivity {
     public void otherClicked(View view) {
         gender = "other";
     }
+
+
 }

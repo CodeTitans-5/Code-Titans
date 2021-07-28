@@ -51,65 +51,68 @@ public class EditInfoActivity extends AppCompatActivity {
         FirebaseUser user = firebaseAuth.getCurrentUser();
         firebaseFirestore = FirebaseFirestore.getInstance();
         collectionReference = firebaseFirestore.collection("Users");
-        userId = user.getUid();
+        if(user != null) {
+            userId = user.getUid();
+        }
         uiMethods();
         readDataFromDB();
     }
     //    The following method reads data of corresponding user from the database and sets the data
     //    to the corresponding fields.
     private void readDataFromDB() {
-        collectionReference.document(userId)
-                .addSnapshotListener(new EventListener<DocumentSnapshot>() {
-                    @Override
-                    public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+        if (userId != null) {
+            collectionReference.document(userId)
+                    .addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                        @Override
+                        public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
 
-                        if (documentSnapshot != null) {
-                            User user = new User();
-                            user = documentSnapshot.
-                                    toObject(User.class);
-                            try {
-                                mFirstName.setText(user.getFirstName());
-                            } catch (NullPointerException e1) {
-                                Log.i(TAG, String.valueOf(e1));
-                            }
-                            try {
-                                mMiddleName.setText(user.getMiddleName());
-                            } catch (NullPointerException e2) {
-                                Log.i(TAG, "onEvent: " + e2.getMessage());
-                            }
-                            try {
-                                mLastName.setText(user.getLastName());
-                            } catch (NullPointerException e2) {
-                                Log.i(TAG, "onEvent: " + e2.getMessage());
-                            }
-                            try {
-                                String gender = user.getGender();
-                                if(gender.equals("male")){
-                                    mMale.setEnabled(true);
-                                } else if(gender.equals("female")){
-                                    mFemale.setEnabled(true);
-                                }else{
-                                    mOther.setEnabled(true);
+                            if (documentSnapshot != null) {
+                                User user = new User();
+                                user = documentSnapshot.
+                                        toObject(User.class);
+                                try {
+                                    mFirstName.setText(user.getFirstName());
+                                } catch (NullPointerException e1) {
+                                    Log.i(TAG, String.valueOf(e1));
+                                }
+                                try {
+                                    mMiddleName.setText(user.getMiddleName());
+                                } catch (NullPointerException e2) {
+                                    Log.i(TAG, "onEvent: " + e2.getMessage());
+                                }
+                                try {
+                                    mLastName.setText(user.getLastName());
+                                } catch (NullPointerException e2) {
+                                    Log.i(TAG, "onEvent: " + e2.getMessage());
+                                }
+                                try {
+                                    String gender = user.getGender();
+                                    if (gender.equals("male")) {
+                                        mMale.setEnabled(true);
+                                    } else if (gender.equals("female")) {
+                                        mFemale.setEnabled(true);
+                                    } else {
+                                        mOther.setEnabled(true);
+                                    }
+                                } catch (NullPointerException e3) {
+                                    Log.i(TAG, "onEvent: " + e3.getMessage());
+                                }
+                                try {
+                                    mPhoneNumber.setText(user.getPhoneNumber());
+                                } catch (NullPointerException e4) {
+                                    Log.i(TAG, "onEvent: " + e4.getMessage());
+                                }
+                                try {
+                                    mEmail.setText(user.getEmailId());
+                                    password = user.getPassword();
+                                } catch (NullPointerException e4) {
+                                    Log.i(TAG, "onEvent: " + e4.getMessage());
                                 }
                             }
-                            catch (NullPointerException e3){
-                                Log.i(TAG, "onEvent: "+e3.getMessage());
-                            }
-                            try {
-                                mPhoneNumber.setText(user.getPhoneNumber());
-                            }catch (NullPointerException e4){
-                                Log.i(TAG, "onEvent: "+e4.getMessage());
-                            }
-                            try {
-                                mEmail.setText(user.getEmailId());
-                                password = user.getPassword();
-                            }catch (NullPointerException e4){
-                                Log.i(TAG, "onEvent: "+e4.getMessage());
-                            }
-                        }
 
-                    }
-                });
+                        }
+                    });
+        }
     }
     //The following method initializes the  edittext fields and firebase.
     private void uiMethods() {
@@ -237,5 +240,13 @@ public class EditInfoActivity extends AppCompatActivity {
     public void onClickChangePassword(View view) {
         Intent intent = new Intent(this, ChangePasswordActivity.class);
         startActivity(intent);
+    }
+    public void setFirstName()
+    {
+        Bundle extras = getIntent().getExtras();
+        String first = extras.getString("firstName");
+        String last = extras.getString("lastName");
+        firstName = first;
+        lastName = last;
     }
 }

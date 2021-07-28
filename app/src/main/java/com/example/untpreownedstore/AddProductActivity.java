@@ -42,7 +42,7 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
     private ImageView mProductImage;
     private Spinner mCategorySpinner;
     private TextView mProductId;
-    private String userId,productId,productName,productDescription,productPrice,productCategory = "Automobiles";
+    String userId,productId,productName,productDescription,productPrice,productCategory = "Automobiles";
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firebaseFirestore;
     private CollectionReference collectionReference;
@@ -85,7 +85,10 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
         mStorageReference = firebaseStorage.getReference();
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        userId = user.getUid();
+        if(user != null)
+        {
+            userId = user.getUid();
+        }
     }
 
     @Override
@@ -285,6 +288,16 @@ public class AddProductActivity extends AppCompatActivity implements AdapterView
         product.setProductCategory(productCategory);
     }
 
+    public void setProductDetails()
+    {
+        Bundle extras = getIntent().getExtras();
+        String pName = extras.getString("productName");
+        String pDesc = extras.getString("productDescription");
+        String pPrice = extras.getString("productPrice");
+        productName = pName;
+        productDescription = pDesc;
+        productPrice = pPrice;
+    }
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 

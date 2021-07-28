@@ -22,7 +22,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 public class ChangePasswordActivity extends AppCompatActivity {
     private static final String TAG = "Change Password Activity";
     private TextInputEditText mOldPassword, mNewPassword, mConfirmNewPassword;
-    private String oldPassword, verifyOldPassword, newPassword, verifyPassword, userId;
+    String oldPassword, verifyOldPassword, newPassword, verifyPassword, userId;
     User user;
     private FirebaseFirestore firebaseFirestore;
     private CollectionReference collectionReference;
@@ -45,7 +45,9 @@ public class ChangePasswordActivity extends AppCompatActivity {
         mConfirmNewPassword = findViewById(R.id.confirm_new_password);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
-        userId = firebaseUser.getUid();
+        if(firebaseUser != null) {
+            userId = firebaseUser.getUid();
+        }
         firebaseFirestore = FirebaseFirestore.getInstance();
         collectionReference = firebaseFirestore.collection("Users");
         try {
@@ -136,5 +138,15 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
 
         }
+    }
+    public void setPwdDetails()
+    {
+        Bundle extras = getIntent().getExtras();
+        String old = extras.getString("oldPassword");
+        String newPassword1 = extras.getString("newPassword");
+        String verifyPassword1 = extras.getString("verifyPassword");
+        oldPassword = old;
+        newPassword = newPassword1;
+        verifyPassword = verifyPassword1;
     }
 }
